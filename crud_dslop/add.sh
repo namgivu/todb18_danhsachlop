@@ -13,4 +13,7 @@ vidugoilenh=cat<<EOT
 # add    $1
 ./add.sh Nam2,q2,vlai2
 ./add.sh 'Nam2,q2,Vuon Lai'  # co khcach trong thamso $1 -> dat vao nhay chuoi
+
+cd ./crud_dslop
+./add.sh 'tencuaban,quan tencuaban,phuong moi tencuaban'
 EOT

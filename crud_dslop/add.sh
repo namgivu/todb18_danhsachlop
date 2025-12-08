@@ -5,3 +5,7 @@ sed -i '' '/<\/pre>/d' ./dslop.html
 #   -i '' de chay dc tren macbook va linux
 
 echo 'Ten MOI' >> ./dslop.html
+
+# them tro lai </pre>
+echo '</pre>'  >> ./dslop.html
+echo ''        >> ./dslop.html

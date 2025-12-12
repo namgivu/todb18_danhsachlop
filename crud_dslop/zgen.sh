@@ -1,34 +1,35 @@
 #!/bin/sh
 
-# ref https://chatgpt.com/share/693c20ca-a618-800f-8124-c2d185eb9e24
+SRC="dslop.html"
+TPL="dslop-w-table.template.html"
+OUT="dslop-w-table.html"
+TMP=$(mktemp)
 
-file="dslop.html"
-tmp=$(mktemp)
+# 1. Copy toàn bộ template tới TMP
+cp "$TPL" "$TMP"
 
-# B1: lấy toàn bộ file trừ phần <table>...</table>
-#    (xóa nguyên block table cũ)
-sed '/<table>/,/<\/table>/d' "$file" > "$tmp"
+# 2. Lấy các dòng trong <pre>...</pre> từ dslop.html, bỏ dòng header
+sed -n '/<pre/,/<\/pre>/p' "$SRC" \
+    | sed '1d;$d' \
+    | sed '1d' > /tmp/dslop_pre_data.txt
+#               ^^^ bỏ dòng đầu (hoten,quancu,phuongmoi)
 
-# B2: thêm lại thẻ <table> mở
-echo "<table>" >> "$tmp"
+# 3. Tạo bảng row và chèn vào cuối TMP (ngay trước </table>)
+while IFS= read -r line; do
+    # trim spaces
+    clean=$(echo "$line" | sed 's/^[ \t]*//;s/[ \t]*$//')
 
-# B3: lấy list trong <pre> … </pre>
-sed -n '/<pre/,/<\/pre>/p' "$file" \
-    | sed '1d;$d' > /tmp/pre_lines.txt
+    hoten=$(echo "$clean" | cut -d',' -f1)
+    quancu=$(echo "$clean" | cut -d',' -f2)
+    phuongmoi=$(echo "$clean" | cut -d',' -f3)
 
-# B4: tạo các row mới
-while IFS= read -r l; do
-    l=$(echo "$l" | sed 's/^[ \t]*//;s/[ \t]*$//')
+    echo "  <tr><td>$hoten</td><td>$quancu</td><td>$phuongmoi</td></tr>" >> "$TMP"
+done < /tmp/dslop_pre_data.txt
 
-    hoten=$(echo "$l" | cut -d',' -f1)
-    quancu=$(echo "$l" | cut -d',' -f2)
-    phuongmoi=$(echo "$l" | cut -d',' -f3)
+# 4. Đóng bảng
+echo "</table>" >> "$TMP"
 
-    echo "  <tr><td>$hoten</td><td>$quancu</td><td>$phuongmoi</td></tr>" >> "$tmp"
-done < /tmp/pre_lines.txt
+# 5. Xuất file cuối
+mv "$TMP" "$OUT"
 
-# B5: đóng bảng
-echo "</table>" >> "$tmp"
-
-# B6: ghi đè file gốc
-mv "$tmp" "$file"
+echo "Generated $OUT"

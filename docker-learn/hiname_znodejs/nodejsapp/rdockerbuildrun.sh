@@ -4,7 +4,7 @@ cd $SH
 set -e  # halted on any err
 
 # build
-docker build . -t hianme-nodejs-i
+docker build . -t hianme-nodejs-i  --progress=plain  --no-cache
 
 # run
 echo

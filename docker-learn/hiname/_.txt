@@ -1,2 +1,2 @@
-Dockerfile --docker build--> hiname_i --docker run--> container hiname_c
+Dockerfile --docker build--> hiname-i --docker run--> container hiname_c
 .                   build                      run    container

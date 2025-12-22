@@ -1,0 +1,10 @@
+services:
+  mynginx-volname-c:
+    image: nginx:alpine-slim
+    #ports:
+    #  - 887:80
+    #volumes:
+    #  - mynginx-v:/usr/share/nginx/html/
+
+#volumes:
+#  mynginx-v:

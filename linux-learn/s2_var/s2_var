@@ -1,0 +1,4 @@
+v=122
+echo "$v"
+echo "\$v"
+echo "$$v"

@@ -1,0 +1,12 @@
+services:
+  mynginx-volname-c:
+    image: nginx:alpine-slim
+    ports:
+      - 887:80
+
+#    environment:
+#      - NAME=todb18 ymlvolenv
+
+    volumes:
+      - ./v/usr/share/nginx/html/:/usr/share/nginx/html/
+      # . ie thumuc chua tep yml nay ; KO PHAI la noi thuc thi lenh compose up

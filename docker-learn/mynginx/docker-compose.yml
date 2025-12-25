@@ -4,4 +4,4 @@ services:
     ports:
       - 885:80
     volumes:
-      - ./v/:/usr/share/nginx/html
+      - ./v:/usr/share/nginx/html/

@@ -1,3 +1,11 @@
-SH=$(cd `dirname ${BASH_SOURCE:-$0}` && pwd)
+    SH=`cd $(dirname $0) && pwd`
 cd $SH
-docker compose up
+
+NAME=${1:-${n}}
+
+# cook hi $NAME!
+cp  ./index.html.origin ./v/index.html
+sed -i'' "s/Welcome to nginx!/Hi $NAME!/g" $SH/v/index.html
+
+# up
+docker compose -p hieunguyen up -d --force-recreate --remove-orphans

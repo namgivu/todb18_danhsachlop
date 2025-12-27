@@ -1,0 +1,9 @@
+apiapp_c
+  curl :22333/      -> 200 {}
+  curl :22333/dslop -> dslop json
+
+webapp_c
+  curl :22334/      -> dslop webpage html
+
+db_c
+  apiapp_c load data fr db_c

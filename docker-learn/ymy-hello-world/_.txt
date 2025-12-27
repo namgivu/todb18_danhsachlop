@@ -1,0 +1,15 @@
+.../docker-learn/my-hello-world
+
+nano Dockerfile
+_="
+FROM alpine
+CMD echo 'My hellow world!'
+"
+
+docker build . -t my-hello-world
+docker build . -t my-hello-world --platform linux/amd64,linux/arm64
+
+docker run my-hello-world
+_='
+My hellow world!
+'

@@ -1,5 +1,6 @@
 FROM python:3.12-alpine
 
+# install uv
 RUN python3 -m pip install --upgrade pip uv
 
 WORKDIR                /app
@@ -8,8 +9,12 @@ COPY ./pyproject.toml  .
 COPY ./uv.lock         .
 #    . context         . WORKDIR
 
+# i dep pkg ie install dependency package
 RUN uv sync
 
+###
+
+# run app
 COPY ./src/app.py ./src/app.py
 #    . context    . WORKDIR
 

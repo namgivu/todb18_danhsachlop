@@ -4,7 +4,7 @@ services:
     image: flask-apiapp-i
 
     ports:
-      - 22333:5000
+      - 33300:5000
     container_name: flask_apiapp_c  # forced naming container as THIS NAME
 
     healthcheck:  # ensure container up w/ healthy running

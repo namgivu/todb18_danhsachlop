@@ -18,10 +18,10 @@ cd $SH
 docker compose logs
 docker compose logs -f
 
-curl -sSLf localhost:22333
+curl -sSLf localhost:33300
 {}
 
-curl -sSLf localhost:22333/dslop
-curl -sSLf localhost:22333/dslop | jq
-curl -sSLf localhost:22333/dslop | jq .
+curl -sSLf localhost:33300/dslop
+curl -sSLf localhost:33300/dslop | jq
+curl -sSLf localhost:33300/dslop | jq .
 EOT

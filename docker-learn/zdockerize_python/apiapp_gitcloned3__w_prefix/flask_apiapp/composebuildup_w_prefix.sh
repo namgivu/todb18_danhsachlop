@@ -9,6 +9,6 @@ docker compose -p myprefix up --force-recreate -d --remove-orphans
 
 echo
 cat <<EOT
-curl -sSLf localhost:22333
+curl -sSLf localhost:33300
 {}
 EOT

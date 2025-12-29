@@ -1,11 +1,12 @@
 services:
-  flask_apiapp_c:
+#  flask_apiapp_c:
+  cabbccc:
     build: .
     image: flask-apiapp-i
 
     ports:
       - 22333:5000
-    container_name: flask_apiapp_c
+#    container_name: flask_apiapp_c
 
     healthcheck:  # ensure container up w/ healthy running
       test: |
@@ -19,5 +20,6 @@ services:
   c_wait4healthy:  # this c is f waiting until flask_apiapp_c is healthy
     image: busybox  # smallest linux i
     depends_on:
-      flask_apiapp_c:
+#      flask_apiapp_c:
+      cabbccc:
         condition: service_healthy

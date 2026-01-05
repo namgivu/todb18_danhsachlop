@@ -9,3 +9,6 @@ jobs:
     steps:
       - name: job1_step1
         run: echo 122
+
+  job2_name:
+    runs-on: ubuntu-22.04

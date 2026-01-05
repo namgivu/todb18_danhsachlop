@@ -1,0 +1,15 @@
+name: PhuCI_Dispatch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run script
+        run: echo "Hello Phu"

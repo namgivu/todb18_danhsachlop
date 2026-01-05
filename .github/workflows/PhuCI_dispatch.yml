@@ -1,4 +1,4 @@
-name: Phu CI Dispatch
+name: PhuCI_dispatch
 
 on:
   workflow_dispatch:

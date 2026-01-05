@@ -7,4 +7,5 @@ jobs:
   job1_name:
     runs-on: ubuntu-22.04
     steps:
-      - name:
+      - name: job1_step1
+        run: echo 122

@@ -1,4 +1,4 @@
-name: ci_getstarted
+name: cinam_getstarted_workflowdispatch
 
 on:
   workflow_dispatch:

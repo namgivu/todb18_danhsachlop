@@ -1,12 +1,15 @@
-name: PhuCI_dispatch
+name: Phu CI Dispatch
 
 on:
   workflow_dispatch:
 
 jobs:
-  jobs1:
+  build:
     runs-on: ubuntu-22.04
-    steps:
-      - name: hello name
-        run: echo "Hello Phu CI"
 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run script
+        run: echo "Hello Phu"

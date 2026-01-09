@@ -12,7 +12,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           key:      ${{ secrets.SSH_PRIVATEKEY_PHU }}
-          username: nam
+          username: phunp2
           host:     47.129.1.184
           script: |
             hostname

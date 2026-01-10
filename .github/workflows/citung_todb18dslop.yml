@@ -11,7 +11,7 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATEKEY_TUNG }}
           username: tung
-          host: 47.129.1.184
+          host: 52.221.30.212
           script: |
             hostname
             echo "USER=$USER"

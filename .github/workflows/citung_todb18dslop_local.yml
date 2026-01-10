@@ -1,0 +1,11 @@
+name: citung_todb18dslop
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: ssh to vm todb18
+        run: |
+          pwd
